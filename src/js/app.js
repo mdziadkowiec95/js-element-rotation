@@ -1,30 +1,44 @@
 var square = document.querySelector('.square');
 var squareText = document.querySelector('.square__text');
+var input = document.querySelector('.nav__input');
 var degrees = 0;
+var value;
 var suqareRotation = 0;
 
-// attach event listener 
+window.onload = init;
+
+function init() {
+  getValue();
+  input.addEventListener('keyup', getValue);
+}
+
+var getValue = function () {
+  value = parseInt(input.value);
+}
+
+// set event handlers (btn click or keyboard arrow action)
+document.addEventListener('keyup', function (e) {
+  updatePosition(e.keyCode);
+});
+
 document.querySelector('.nav').addEventListener('click', function (e) {
-
   if (e.target.matches('.btn--rotate')) {
-
-    var squareAction = e.target.dataset.action;
-    console.log(squareAction);
-
-    updatePosition(squareAction);
+    updatePosition(e.target.dataset.action);
   }
 
 });
 
 
+
 // update the position of the square
 function updatePosition(action) {
-  if (action === 'increase') {
-    degrees += 5;
+  // debugger
+  if (action === 'increase' || action === 39) {
+    degrees += value;
   }
 
-  if (action === 'decrease') {
-    degrees -= 5;
+  if (action === 'decrease' || action === 37) {
+    degrees -= value;
   }
 
   suqareRotation = 'rotate(' + degrees + 'deg)';
