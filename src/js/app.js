@@ -1,9 +1,10 @@
 var square = document.querySelector('.square');
+var squareText = document.querySelector('.square__text');
 var degrees = 0;
 var suqareRotation = 0;
 
-
-document.addEventListener('click', function (e) {
+// attach event listener 
+document.querySelector('.nav').addEventListener('click', function (e) {
 
   if (e.target.matches('.btn--rotate')) {
 
@@ -15,6 +16,8 @@ document.addEventListener('click', function (e) {
 
 });
 
+
+// update the position of the square
 function updatePosition(action) {
   if (action === 'increase') {
     degrees += 5;
@@ -26,6 +29,12 @@ function updatePosition(action) {
 
   suqareRotation = 'rotate(' + degrees + 'deg)';
   square.style.transform = suqareRotation;
+
+  updateText(degrees); // update text inside square
+}
+
+function updateText(deg) {
+  squareText.textContent = deg + ' deg';
 }
 
 

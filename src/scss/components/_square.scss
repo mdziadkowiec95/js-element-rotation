@@ -1,6 +1,13 @@
 .square {
+  position: relative;
   width: 20vw;
   height: 20vw;
   background-color: $color1;
   transition: transform .2s ease;
+
+  &__text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
 }
