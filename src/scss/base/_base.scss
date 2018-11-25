@@ -1,9 +1,15 @@
+body {
+  background-color: $color4;
+} 
+
 .wrapper {
   display: block;
   margin: auto;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   padding-left: 15px;
   padding-right: 15px;
-  background-color: #eee;
+  // background-color: #eee;
 
   @include breakpoint(sm) {
     max-width: 540px;

@@ -1,6 +1,8 @@
 @import '../../node_modules/normalize-scss/fork-versions/default/_normalize';
-
-@import 'components/buttons';
-@import 'utils/mixins'; 
-
+@import 'utils/mixins';
+@import 'utils/variables'; 
 @import 'base/base';
+@import 'layout/nav';
+@import 'layout/play-box';
+@import 'components/buttons';
+@import 'components/square';

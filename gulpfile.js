@@ -30,12 +30,12 @@ gulp.task('sass', function () {
 
 
 
-gulp.task('minifyScripts', function () {
-  return gulp.src('./src/js/app.js')
-    .pipe(uglify())
-    .pipe(rename('app.min.js'))
-    .pipe(gulp.dest('./src/js'));
-});
+// gulp.task('minifyScripts', function () {
+//   return gulp.src('./src/js/app.js')
+//     .pipe(uglify())
+//     .pipe(rename('app.min.js'))
+//     .pipe(gulp.dest('./src/js'));
+// });
 
 
 gulp.task('default', ['serve']);

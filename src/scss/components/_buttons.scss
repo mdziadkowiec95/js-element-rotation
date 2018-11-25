@@ -1,4 +1,25 @@
 
 .btn {
-  padding: 2rem;
+  padding: .8em 1.2em;
+  outline: 0;
+  box-shadow: 0 3px 4px rgba($color5, 1);
+  transition: all .3s ease;
+
+  
+
+  &--rotate {
+    background-color: $white;
+    border: 3px solid $color1;
+    color: $color1;
+
+    &:hover {
+    background-color: $color1;
+    color: $white;
+    }
+
+    &:active {
+      background-color: $white;
+      color: $color1;
+    }
+  }
 }
