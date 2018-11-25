@@ -8,31 +8,28 @@ var suqareRotation = 0;
 window.onload = init;
 
 function init() {
-  getValue();
-  input.addEventListener('keyup', getValue);
+  updateValue();
+
+  // set event handlers
+  input.addEventListener('keyup', updateValue);
+  document.addEventListener('keyup', function (e) {
+    updatePosition(e.keyCode);
+  });
+
+  document.querySelector('.nav').addEventListener('click', function (e) {
+    if (e.target.matches('.btn--rotate')) {
+      updatePosition(e.target.dataset.action);
+    }
+  });
 }
 
-var getValue = function () {
+var updateValue = function () {
   value = parseInt(input.value);
 }
-
-// set event handlers (btn click or keyboard arrow action)
-document.addEventListener('keyup', function (e) {
-  updatePosition(e.keyCode);
-});
-
-document.querySelector('.nav').addEventListener('click', function (e) {
-  if (e.target.matches('.btn--rotate')) {
-    updatePosition(e.target.dataset.action);
-  }
-
-});
-
 
 
 // update the position of the square
 function updatePosition(action) {
-  // debugger
   if (action === 'increase' || action === 39) {
     degrees += value;
   }
