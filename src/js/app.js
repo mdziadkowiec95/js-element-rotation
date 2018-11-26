@@ -1,6 +1,8 @@
 var square = document.querySelector('.square');
 var squareText = document.querySelector('.square__text');
 var input = document.querySelector('.nav__input');
+var pallete = document.querySelector('.pallete');
+var collors = document.querySelectorAll('.pallete__color');
 var degrees = 0;
 var value;
 var suqareRotation = 0;
@@ -8,6 +10,9 @@ var suqareRotation = 0;
 window.onload = init;
 
 function init() {
+  for (var i = 0; i < collors.length; i++) {
+    collors[i].style.backgroundColor = collors[i].dataset.color;
+  }
   updateValue();
 
   // set event handlers
@@ -21,10 +26,33 @@ function init() {
       updatePosition(e.target.dataset.action);
     }
   });
+
+  pallete.addEventListener('click', function (e) {
+    if (e.target.dataset.color) {
+      setColor(e.target);
+    }
+  });
 }
 
+
+function setColor(palleteEl) {
+  var target = palleteEl;
+
+  for (var i = 0; i < collors.length; i++) {
+    collors[i].classList.remove('active');
+  }
+  target.classList.add('active');
+  square.style.backgroundColor = target.dataset.color;
+
+}
+
+
 var updateValue = function () {
-  value = parseInt(input.value);
+  if (input.value) {
+    value = parseInt(input.value);
+  } else {
+    value = 0;
+  }
 }
 
 
